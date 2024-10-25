@@ -1,0 +1,103 @@
+<p-card header="Update Correspondence"  [style]="{ width: '100%' }">
+    <ng-template pTemplate="header">
+
+    </ng-template>
+    <div>
+      <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+
+
+        <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-file"></i></span>
+              <input class="w-12" type="text" pInputText formControlName="correspondenceType" placeholder="Correspondence Type" title="correspondenceType">
+            </div>
+          </div>
+        
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-weight"></i></span>
+              <input class="w-12" type="number" pInputText formControlName="correspondenceWeight" placeholder="Weight (kg)" title="correspondenceWeight">
+            </div>
+          </div>
+
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-arrows-alt"></i></span>
+              <input class="w-12" type="text" pInputText formControlName="correspondenceDimensions" placeholder="Dimensions (LxWxH)" title="correspondenceDimensions">
+            </div>
+          </div>
+        
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
+              <input class="w-12" type="date" pInputText formControlName="correspondenceShipmentDate" placeholder="Shipment Date" title="correspondenceShipmentDate">
+            </div>
+          </div>
+        
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
+              <input class="w-12" type="date" pInputText formControlName="correspondenceDeliveryDate" placeholder="Delivery Date" title="correspondenceDeliveryDate">
+            </div>
+          </div>
+        
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+              <select class="w-12" formControlName="correspondenceSender" title="correspondenceSender">
+                <!-- Aquí debes agregar las opciones para seleccionar el remitente, por ejemplo: -->
+                <option *ngFor="let customer of customers" [value]="customer.fullname">{{ customer.fullname }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+              <select class="w-12" formControlName="correspondenceReceiver" title="correspondenceReceiver">
+                <!-- Aquí debes agregar las opciones para seleccionar el destinatario, por ejemplo: -->
+                <option *ngFor="let customer of customers" [value]="customer.fullname">{{ customer.fullname }}</option>
+              </select>
+            </div>
+          </div>
+        
+          <div class="col-12 sm:col-6">
+            <div class="p-inputgroup mb-1">
+              <span class="p-inputgroup-addon"><i class="pi pi-briefcase"></i></span>
+              <select class="w-12" formControlName="correspondenceService" title="correspondenceService">
+                <!-- Aquí debes agregar las opciones para seleccionar el servicio asociado, por ejemplo: -->
+                <option *ngFor="let service of services" [value]="service.transportation">{{ service.transportation }}</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="flex justify-content-center flex-wrap">
+          <button 
+                      pButton 
+                      pRipple
+                      label="Update"
+                      icon="pi pi-save"
+                      severity="info"
+                      class="mr-4"
+                      type="submit"
+          ></button>
+
+          <button 
+                      pButton 
+                      pRipple
+                      label="Cancel"
+                      icon="pi pi-times-circle"
+                      severity="warning"
+                      class="mr-4"
+                      type="button"
+                      (click)="cancel()"
+          ></button>
+        </div>
+
+
+    </form> 
+
+    <ng-template pTemplate="footer">
+
+    </ng-template>
+

@@ -1,0 +1,49 @@
+/* Estilos para el footer principal */
+.footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #000000;
+    color: white;
+    padding: 5px;
+    border-top: 3px solid #00ff1eb6;
+    text-align: center;
+}
+
+/* Estilos para el contenido del footer */
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Alinear los elementos verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+}
+
+.footer-content p {
+    margin: 5px 0; /* Espaciado entre los párrafos */
+    font-size: 14px; /* Tamaño de fuente */
+    color: #ddd; /* Texto gris claro */
+}
+
+.footer-content p:hover {
+    color: #59ff00cf; /* Cambio de color al pasar el cursor */
+    transition: color 0.3s ease; /* Animación suave */
+}
+
+/* Estilos para la parte de derechos de autor */
+.footer-content p:last-child {
+    margin-top: 10px; /* Separación adicional para los créditos */
+}
+
+/* Responsivo para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .footer {
+        padding: 10px;
+    }
+
+    .footer-content p {
+        font-size: 12px; /* Tamaño de texto más pequeño para dispositivos móviles */
+    }
+}
+
+* {
+    box-sizing: border-box;
+}

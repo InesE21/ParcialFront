@@ -1,0 +1,89 @@
+<p-card header="Update Shipping"  [style]="{ width: '100%' }">
+    <ng-template pTemplate="header">
+
+    </ng-template>
+    <div>
+      <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+
+
+        <div class="grid">
+            <div class="col-12 sm:col-6">
+              <div class="p-inputgroup mb-1">
+                <span class="p-inputgroup-addon"><i class="pi pi-info-circle"></i></span>
+                <select class="w-12" formControlName="status" title="status">
+                  <option value="AT ORIGIN">At Origin</option>
+                  <option value="AT DESTINATION">At Destination</option>
+                  <option value="ON THE WAY">On the Way</option>
+                  <option value="DELIVERED">Delivered</option>
+                </select>
+              </div>
+            </div>
+          
+            <div class="col-12 sm:col-6">
+              <div class="p-inputgroup mb-1">
+                <span class="p-inputgroup-addon"><i class="pi pi-calendar"></i></span>
+                <input class="w-12" type="datetime-local" pInputText formControlName="dateTime" placeholder="Date and Time" title="dateTime">
+              </div>
+            </div>
+          
+            <div class="col-12 sm:col-6">
+              <div class="p-inputgroup mb-1">
+                <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+                <select class="w-12" formControlName="correspondence" title="correspondence">
+                  <!-- Aquí debes agregar las opciones para seleccionar la correspondencia, por ejemplo: -->
+                  <option *ngFor="let correspondence of correspondences" [value]="correspondence.code">{{ correspondence.code }}</option>
+                </select>
+              </div>
+            </div>
+          
+            <div class="col-12 sm:col-6">
+              <div class="p-inputgroup mb-1">
+                <span class="p-inputgroup-addon"><i class="pi pi-building"></i></span>
+                <select class="w-12" formControlName="branch" title="branch">
+                  <!-- Aquí debes agregar las opciones para seleccionar la sucursal, por ejemplo: -->
+                  <option *ngFor="let branch of branches" [value]="branch.nameB">{{ branch.nameB }}</option>
+                </select>
+              </div>
+            </div>
+          
+            <div class="col-12 sm:col-6">
+              <div class="p-inputgroup mb-1">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <select class="w-12" formControlName="employee" title="employee">
+                  <!-- Aquí debes agregar las opciones para seleccionar el empleado, por ejemplo: -->
+                  <option *ngFor="let employee of employees" [value]="employee.fullname">{{ employee.fullname }}</option>
+                </select>
+              </div>
+            </div>
+          </div>          
+
+
+        <div class="flex justify-content-center flex-wrap">
+          <button 
+                      pButton 
+                      pRipple
+                      label="Update"
+                      icon="pi pi-save"
+                      severity="info"
+                      class="mr-4"
+                      type="submit"
+          ></button>
+
+          <button 
+                      pButton 
+                      pRipple
+                      label="Cancel"
+                      icon="pi pi-times-circle"
+                      severity="warning"
+                      class="mr-4"
+                      type="button"
+                      (click)="cancel()"
+          ></button>
+        </div>
+
+
+    </form> 
+
+    <ng-template pTemplate="footer">
+
+    </ng-template>

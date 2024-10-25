@@ -1,0 +1,66 @@
+<p-card class="w-12 h-full">
+    <ng-template pTemplate="header">
+      <div class="flex justify-content-between flex-wrap">
+        <h3 class="ml-4">Transports</h3>
+        <div class="mt-2 mr-2">
+          <a
+            pButton
+            pRipple
+            label="Add Transport"
+            icon="pi pi-user-plus"
+            class="bg-cyan-600"
+            [routerLink]="['/transport/new']"
+          >
+          </a>
+        </div>
+      </div>
+    </ng-template>
+  
+    <p>
+      <p-table [value]="transports">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Transportation</th>
+            <th>Capacity</th>
+            <th class="flex justify-content-center flex-wrap">Actions</th>
+          </tr>
+        </ng-template>
+  
+        <ng-template pTemplate="body" let-transport>
+          <tr>
+            <td>{{ transport.transportation }}</td>
+            <td>{{ transport.capacity }}</td>
+            <td>
+              <button
+                pButton
+                pRipple
+                icon="pi pi-print"
+                class="bg-cyan-600 mr-1"
+              >
+              </button>
+  
+              <a
+                pButton
+                pRipple
+                icon="pi pi-sync"
+                severity="warning"
+                class="mr-1"
+                [routerLink]="['/transport/edit', transport.id]"
+              >
+              </a>
+  
+              <button
+                pButton
+                pRipple
+                severity="danger"
+                icon="pi pi-eraser"
+                class="mr-1"
+                (click)="delete(transport.id)"
+              >
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p>
+  </p-card>

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="image-container">
+      <img src="../../assets/images/Bienvenida.png" alt="Correspondencia" class="welcome-image" />
+      <div class="search-bar">
+          <input 
+            type="text" 
+            [(ngModel)]="searchTerm" 
+            placeholder="Ingrese guía" 
+            (input)="searchCorrespondence()" 
+          />
+          <button (click)="searchCorrespondence()" class="search-button">
+            <i class="fa fa-search"></i>
+          </button>
+      </div>
+  </div>
+
+  <div class="search-results" *ngIf="filteredResults.length > 0">
+      <ul>
+          <li *ngFor="let correspondence of filteredResults">
+            {{ correspondence.code }} 
+          </li>
+      </ul>
+  </div>
+
+  <div *ngIf="filteredResults.length === 0 && searchTerm">
+      <p>No se encontraron resultados.</p>
+  </div>
+</div>

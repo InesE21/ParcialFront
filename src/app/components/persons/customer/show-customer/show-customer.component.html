@@ -1,0 +1,75 @@
+<p-card class="w-12 h-full">
+    <ng-template pTemplate="header">
+      <div class="flex justify-content-between flex-wrap">
+        <h3 class="ml-4">Customers</h3>
+        <div class="mt-2 mr-2">
+          <a
+            pButton
+            pRipple
+            label="Add Customer"
+            icon="pi pi-user-plus"
+            class="bg-cyan-600"
+            [routerLink]="['/persons/customer/new']"
+          >
+          </a>
+        </div>
+      </div>
+    </ng-template>
+  
+    <p>
+      <p-table [value]="persons">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>DNI</th>
+            <th>Full Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Customer Type</th>
+            <th class="flex justify-content-center flex-wrap">Actions</th>
+          </tr>
+        </ng-template>
+      
+        <ng-template pTemplate="body" let-customer>
+          <tr>
+            <td>{{ customer.dni }}</td>
+            <td>{{ customer.fullname }}</td>
+            <td>{{ customer.address }}</td>
+            <td>{{ customer.phoneNumber }}</td>
+            <td>{{ customer.mail }}</td>
+            <td>{{ customer.customer_type }}</td>
+            <td>
+              <button
+                pButton
+                pRipple
+                icon="pi pi-print"
+                class="bg-cyan-600 mr-1"
+              >
+              </button>
+  
+              <a
+                pButton
+                pRipple
+                icon="pi pi-sync"
+                severity="warning"
+                class="mr-1"
+                [routerLink]="['persons/customer/edit', customer.id]"
+              >
+              </a>
+  
+              <button
+                pButton
+                pRipple
+                severity="danger"
+                icon="pi pi-eraser"
+                class="mr-1"
+                (click)="delete(customer.id)"
+              >
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p>
+  </p-card>
+  
